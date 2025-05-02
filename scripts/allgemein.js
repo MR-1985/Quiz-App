@@ -30,7 +30,6 @@ function init() {
 function getFromLocalStorage(){
     let savedIndex = localStorage.getItem('currentQuestion');
     currentQuestion = savedIndex ? parseInt(savedIndex) : 0;
-
     let savedRightAnswers = localStorage.getItem('currentRightAnswers');
     currentRightAnswers = savedRightAnswers ? parseInt(savedRightAnswers) : 0;
 };
@@ -46,10 +45,17 @@ function showCountOfAllQuestions() {
 };
 
 function showQuestion() {
-    let question = questions[currentQuestion];
-    let questionRef = document.getElementById("question")
-    questionRef.innerText = question['question']
+    displayQuestion();
+    updateProgressBar();
+};
 
+function displayQuestion(){
+    let question = questions[currentQuestion];
+    let questionRef = document.getElementById("question");
+    questionRef.innerText = question['question'];
+};
+
+function updateProgressBar(){
     let percent = (currentQuestion + 1) / questions.length;
     percent = Math.round(percent *100);
     let progressStatus = document.getElementById('progress-bar');
@@ -74,9 +80,15 @@ function disableNextButton() {
 //---------End-of-init()-----------------------------------------------------------------------------
 
 function selectAnswer(selectedAnswer) {
+    answerSelectionInProgress(selectedAnswer);
+    disableAnswers();
+    enableNextButton();
+    changeTheNextButton();
+};
+
+function answerSelectionInProgress(selectedAnswer){
     let question = questions[currentQuestion];
     let rightAnswer = question['right_answer'];
-
     if (selectedAnswer == rightAnswer) {
         document.getElementById('card-' + selectedAnswer).classList.add('bg-success', 'text-white');
         rightAnswers();
@@ -86,10 +98,22 @@ function selectAnswer(selectedAnswer) {
         document.getElementById('card-' + selectedAnswer).classList.add('bg-danger', 'text-white');
         document.getElementById('card-' + rightAnswer).classList.add('bg-success', 'text-white');
     }
-    disableAnswers();
-    enableNextButton();
+};
+
+function disableAnswers() {
+    let cards = document.querySelectorAll('.answer-card');
+    cards.forEach(card => {
+        card.style.pointerEvents = 'none'
+    })
+};
+
+function enableNextButton() {
+    let nextButtonRef = document.getElementById('next-button');
+    nextButtonRef.disabled = false;
+};
+
+function changeTheNextButton(){
     localStorage.setItem('currentQuestion', currentQuestion);
-    
     if (currentQuestion === questions.length - 1) {
         let resultButton = document.getElementById('next-button');
         resultButton.innerText = "Zur Auswertung"
@@ -105,18 +129,6 @@ function showQuizResult(){
     let getRightCountOfAnswers = document.getElementById('right-answers');
     rightDone.innerHTML = getRightCountOfAnswers.textContent;
     possibleAnswers.innerHTML = questions.length;
-};
-
-function disableAnswers() {
-    let cards = document.querySelectorAll('.answer-card');
-    cards.forEach(card => {
-        card.style.pointerEvents = 'none'
-    })
-};
-
-function enableNextButton() {
-    let nextButtonRef = document.getElementById('next-button');
-    nextButtonRef.disabled = false;
 };
 
 function nextQuestion() { 
