@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap-5.3.5-dist/css/bootstrap.min.css">
+    <script src="./bootstrap-5.3.5-dist/js/bootstrap.js"></script>
+
+    <script src=".//scripts/db-bundesliga.js"></script>
+    <script src="./templates/templates.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Quiz App - Bundesliga</title>
+</head>
+
+<body onload="init()" class="mx-auto py-2 px-5">
+
+    <div class="card" id="card">
+        <div class="card-body" id="showActualQuiz">
+            <h1>Quiz-App - Bundesliga</h1>
+        </div>
+        <div class="card d-none" id="choiceQuiz">
+            <div>
+                <li><a class="btn btn-primary mb-1" href="./allgemein.html">Allgemein</a></li>
+                <li><a class="btn btn-primary mb-1" href="./körper.html">Der menschliche Körper</a></li>
+                <li><a class="btn btn-primary mb-1" href="./webdesign.html">Webdesign</a></li>
+                <li><a class="btn btn-primary mb-1" href="./tiere.html">Tiere</a></li>
+                <li><a class="btn btn-choice mb-1" href="./index.html">Beenden</a></li>
+                </div>
+        </div>
+    </div>
+
+    <div id="second-body">
+
+<div id="theEnd">
+</div>
+
+        <div class="card-container mx-auto py-2 px-2 d-flex flex-column rounded-1">
+            <button type="button" class="burger-btn btn" id="choose-quiz-button" onclick="toggleQuizChoice()">≡</button>
+            <img src="./imgs/question.jpg" class="card-img-top">
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped bg-warning" id="progress-bar" role="progressbar"
+                    style="width: 15%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <div id="card-body" class="card-body">
+                <h5 id="question" class="card-title my-2"></h5>
+                <div id="answer-container"></div>
+            </div>
+            <div id="overvewContainer" class="d-flex justify-content-between">
+                <div class="count-container d-flex flex-column">
+                    <span>
+                        Frage
+                        <span id="count"></span>
+                        von
+                        <span id="all-questions"></span>
+                    </span>
+                    <span>
+                        Richtig
+                        <span id="right-answers"></span>
+                    </span>
+                </div>
+                <button class="btn btn-primary" id="next-button" onclick="nextQuestion()">Nächste Frage</button>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script src="./scripts/bundesliga.js" defer></script>
+</body>
+
+</html>
+

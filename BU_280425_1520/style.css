@@ -1,0 +1,76 @@
+body {
+    background-color: rgb(163, 112, 247);
+
+}
+
+.card-container {
+    background-color: aliceblue;
+    width: 100%;
+    max-width: 750px;
+}
+
+.card {
+    margin-bottom: 10px;
+    cursor: pointer;
+    padding: 0.50rem;
+<<<<<<< HEAD
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.card-body {
+    padding: 0px;
+}
+
+h5 {
+    font-size: 1.5rem;
+}
+
+#choose-quiz-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1001;
+}
+
+.burger-btn {
+    font-weight: bold;
+}
+
+li{
+    list-style-type: none;
+}
+
+=======
+}
+
+h5{
+    font-size: 1.5rem;
+}
+
+>>>>>>> 8c1a870738c03d5ff2c399eb9d9177aae52d1bc3
+@media (max-width: 525px) {
+
+    #back-button,
+    #next-button {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+<<<<<<< HEAD
+    #overvewContainer {
+        flex-direction: column;
+    }
+
+    h5 {
+=======
+    #overvewContainer{
+        flex-direction: column;
+    }
+
+    h5{
+>>>>>>> 8c1a870738c03d5ff2c399eb9d9177aae52d1bc3
+        font-size: 1rem;
+    }
+}

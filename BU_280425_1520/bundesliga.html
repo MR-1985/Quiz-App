@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap-5.3.5-dist/css/bootstrap.min.css">
+    <script src="./bootstrap-5.3.5-dist/js/bootstrap.js"></script>
+
+    <script src=".//scripts/db-bundesliga.js"></script>
+    <script src="./templates/templates.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Quiz App - Allgemein</title>
+</head>
+
+<body onload="init()" class="mx-auto py-2 px-5">
+
+    <div class="card">
+        <div class="card-body">
+            <h1>Quiz-App - Bundesliga</h1>
+        </div>
+    </div>
+
+    <div id="second-body">
+
+<div id="theEnd">
+</div>
+
+        <div class="card-container mx-auto py-2 px-2 d-flex flex-column rounded-1">
+            <button type="button" class="burger-btn btn" id="choose-quiz-button">≡</button>
+            <img src="./imgs/question.jpg" class="card-img-top">
+            <div id="card-body" class="card-body">
+                <h5 id="question" class="card-title my-2"></h5>
+                <div id="answer-container"></div>
+            </div>
+            <div id="overvewContainer" class="d-flex justify-content-between">
+                <div class="count-container d-flex flex-column">
+                    <span>
+                        Frage
+                        <span id="count"></span>
+                        von
+                        <span id="all-questions"></span>
+                    </span>
+                    <span>
+                        Richtig
+                        <span id="right-answers"></span>
+                    </span>
+                </div>
+                <button class="btn btn-primary" id="next-button" onclick="nextQuestion()">Nächste Frage</button>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script src="./scripts/bundesliga.js" defer></script>
+</body>
+
+</html>
+
